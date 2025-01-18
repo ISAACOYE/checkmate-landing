@@ -35,13 +35,23 @@
             padding: 20px 0;
         }
 
+        .app-store-section {
+            text-align: center;
+        }
+
+        .app-store-text {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
         .app-store-button {
             background-color: #000;
             color: #fff;
             padding: 10px 20px;
             border-radius: 8px;
             text-decoration: none;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 8px;
             transition: opacity 0.3s ease;
@@ -83,6 +93,28 @@
             color: #666;
         }
 
+        .features {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .feature-icon {
+            font-size: 1.2rem;
+            color: #000;
+            width: 24px;
+        }
+
         .footer {
             text-align: center;
             padding: 20px 0;
@@ -119,16 +151,23 @@
             .logo-container {
                 width: 150px;
             }
+
+            .feature-item {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header class="header">
-            <a href="#" class="app-store-button">
-                <i class="fab fa-app-store"></i>
-                Download on App Store
-            </a>
+            <div class="app-store-section">
+                <p class="app-store-text">Available now on the App Store</p>
+                <a href="#" class="app-store-button">
+                    <i class="fab fa-app-store"></i>
+                    Download on App Store
+                </a>
+            </div>
         </header>
 
         <main class="main-content">
@@ -137,6 +176,25 @@
             </div>
             <h1>Welcome to CheckMate+</h1>
             <p class="tagline">Simplify Your Life, One Task at a Time</p>
+
+            <div class="features">
+                <div class="feature-item">
+                    <i class="fas fa-check-circle feature-icon"></i>
+                    <span>Track tasks effortlessly with customizable buttons</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-bell feature-icon"></i>
+                    <span>Get timely reminders when you need them</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-camera feature-icon"></i>
+                    <span>Document task completion with photos</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-tasks feature-icon"></i>
+                    <span>Stay organized with task groups and activity logs</span>
+                </div>
+            </div>
         </main>
 
         <footer class="footer">
@@ -144,8 +202,11 @@
                 <a href="mailto:checkmateprodtool@gmail.com" aria-label="Email">
                     <i class="fas fa-envelope"></i>
                 </a>
-                <a href="#" aria-label="Instagram">
+                <a href="https://instagram.com/checkmate.plus" aria-label="Instagram">
                     <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/checkmate-plus" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
                 </a>
             </div>
         </footer>
