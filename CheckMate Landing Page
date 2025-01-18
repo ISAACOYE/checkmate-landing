@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CheckMate+</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -30,7 +30,7 @@
 
         .header {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
             padding: 20px 0;
         }
@@ -44,6 +44,11 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            transition: opacity 0.3s ease;
+        }
+
+        .app-store-button:hover {
+            opacity: 0.9;
         }
 
         .main-content {
@@ -57,13 +62,14 @@
         }
 
         .logo-container {
-            max-width: 400px;
+            width: 200px;
             margin-bottom: 30px;
         }
 
         .logo-container img {
             width: 100%;
             height: auto;
+            border-radius: 20px;
         }
 
         h1 {
@@ -111,7 +117,7 @@
             }
 
             .logo-container {
-                max-width: 300px;
+                width: 150px;
             }
         }
     </style>
@@ -119,7 +125,6 @@
 <body>
     <div class="container">
         <header class="header">
-            <div></div>
             <a href="#" class="app-store-button">
                 <i class="fab fa-app-store"></i>
                 Download on App Store
@@ -128,7 +133,7 @@
 
         <main class="main-content">
             <div class="logo-container">
-                <img src="Checkmate logo.png">
+                <img src="Checkmate logo.png" alt="CheckMate+ Logo">
             </div>
             <h1>Welcome to CheckMate+</h1>
             <p class="tagline">Simplify Your Life, One Task at a Time</p>
@@ -136,7 +141,7 @@
 
         <footer class="footer">
             <div class="social-links">
-                <a href="mailto:contact@checkmate.com" aria-label="Email">
+                <a href="mailto:checkmateprodtool@gmail.com" aria-label="Email">
                     <i class="fas fa-envelope"></i>
                 </a>
                 <a href="#" aria-label="Instagram">
