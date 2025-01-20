@@ -360,6 +360,7 @@
                 });
 
                 const result = await response.json();
+                console.log('Response:', result); // Log the response
 
                 if (response.ok) {
                     statusElement.textContent = 'Thanks for joining the waitlist!';
@@ -370,7 +371,7 @@
                     statusElement.style.color = 'red';
                 }
             } catch (error) {
-                console.error('Error:', error);
+                console.error('Error:', error); // Log the error
                 statusElement.textContent = 'Something went wrong. Please try again.';
                 statusElement.style.color = 'red';
             } finally {
