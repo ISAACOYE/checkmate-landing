@@ -110,21 +110,23 @@
             position: absolute;
             bottom: 12px;
             right: 12px;
-            background: rgba(0, 0, 0, 0.6);
+            background: #ff3b30;
             border: none;
             border-radius: 50%;
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             color: white;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            z-index: 10;
         }
 
         .audio-toggle:hover {
-            background: rgba(0, 0, 0, 0.8);
+            background: #ff1810;
+            transform: scale(1.05);
         }
 
         .video-container video {
