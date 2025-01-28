@@ -103,6 +103,28 @@
             overflow: hidden;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
             background: #000;
+            position: relative;
+        }
+
+        .audio-toggle {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(0, 0, 0, 0.6);
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .audio-toggle:hover {
+            background: rgba(0, 0, 0, 0.8);
         }
 
         .video-container video {
@@ -272,10 +294,13 @@
             <p class="tagline">Peace of mind with every task</p>
 
             <div class="video-container">
-                <video autoplay loop muted playsinline>
+                <video id="promo-video" autoplay loop muted playsinline>
                     <source src="CheckMate App Preview (2).mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
+                <button id="audio-toggle" class="audio-toggle" aria-label="Toggle sound">
+                    <i class="fas fa-volume-mute"></i>
+                </button>
             </div>
 
             <div class="features">
@@ -339,6 +364,18 @@
         function hideComingSoonModal() {
             document.getElementById('coming-soon-modal').style.display = 'none';
         }
+
+        // Audio toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('promo-video');
+            const audioToggle = document.getElementById('audio-toggle');
+            const audioIcon = audioToggle.querySelector('i');
+
+            audioToggle.addEventListener('click', function() {
+                video.muted = !video.muted;
+                audioIcon.className = video.muted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
+            });
+        });
     </script>
 </body>
 </html>
