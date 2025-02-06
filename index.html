@@ -1,3 +1,6 @@
+Here’s the full code with the countdown timer integrated:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,6 +47,12 @@
             font-size: 0.9rem;
             color: #666;
             margin-bottom: 8px;
+        }
+
+        #countdown {
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 10px;
         }
 
         .app-store-button {
@@ -281,6 +290,7 @@
         <header class="header">
             <div class="app-store-section">
                 <p class="app-store-text">Coming soon to the App Store</p>
+                <p id="countdown"></p>
                 <a class="app-store-button" onclick="showComingSoonModal()">
                     <i class="fab fa-app-store"></i>
                     Download on App Store
@@ -300,8 +310,8 @@
                     <source src="CheckMate App Preview (2).mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-                <button id="audio-toggle" class="audio-toggle" aria-label="Toggle sound" style="position: absolute; bottom: 12px; right: 12px; background: #ff3b30; width: 40px; height: 40px; border-radius: 50%; border: none; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 1000;">
-                    <i class="fas fa-volume-mute" style="font-size: 18px;"></i>
+                <button id="audio-toggle" class="audio-toggle" aria-label="Toggle sound">
+                    <i class="fas fa-volume-mute"></i>
                 </button>
             </div>
 
@@ -367,6 +377,34 @@
             document.getElementById('coming-soon-modal').style.display = 'none';
         }
 
+        // Countdown Timer
+        function countdownTimer() {
+            const launchDate = new Date();
+            launchDate.setDate(launchDate.getDate() + 7); // 7 days countdown
+            const countdownDisplay = document.getElementById('countdown');
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = launchDate - now;
+
+                if (distance < 0) {
+                    countdownDisplay.innerHTML = "Launching Today!";
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                countdownDisplay.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+
+            setInterval(updateCountdown, 1000); // Update every second
+        }
+
+        document.addEventListener('DOMContentLoaded', countdownTimer);
+
         // Audio toggle functionality
         document.addEventListener('DOMContentLoaded', function() {
             const video = document.getElementById('promo-video');
@@ -381,3 +419,6 @@
     </script>
 </body>
 </html>
+```
+
+Let me know if this works perfectly for you or if you’d like to tweak the styling or functionality!
