@@ -1,5 +1,3 @@
-Here’s the full code with the countdown timer integrated:
-
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -379,31 +377,32 @@ Here’s the full code with the countdown timer integrated:
 
         // Countdown Timer
         function countdownTimer() {
-            const launchDate = new Date();
-            launchDate.setDate(launchDate.getDate() + 7); // 7 days countdown
-            const countdownDisplay = document.getElementById('countdown');
+    // Set the launch date explicitly
+    const launchDate = new Date('2025-02-13T00:00:00'); // Set to the exact time (YYYY-MM-DD format)
+    const countdownDisplay = document.getElementById('countdown');
 
-            function updateCountdown() {
-                const now = new Date().getTime();
-                const distance = launchDate - now;
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = launchDate - now;
 
-                if (distance < 0) {
-                    countdownDisplay.innerHTML = "Launching Today!";
-                    return;
-                }
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                countdownDisplay.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-            }
-
-            setInterval(updateCountdown, 1000); // Update every second
+        if (distance < 0) {
+            countdownDisplay.innerHTML = "Launching Today!";
+            return;
         }
 
-        document.addEventListener('DOMContentLoaded', countdownTimer);
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownDisplay.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000); // Update every second
+}
+
+document.addEventListener('DOMContentLoaded', countdownTimer);
+
 
         // Audio toggle functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -421,4 +420,3 @@ Here’s the full code with the countdown timer integrated:
 </html>
 ```
 
-Let me know if this works perfectly for you or if you’d like to tweak the styling or functionality!
