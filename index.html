@@ -366,56 +366,55 @@
         </div>
     </div>
 
-    <script>
-        function showComingSoonModal() {
-            document.getElementById('coming-soon-modal').style.display = 'flex';
-        }
-
-        function hideComingSoonModal() {
-            document.getElementById('coming-soon-modal').style.display = 'none';
-        }
-
-        // Countdown Timer
-        function countdownTimer() {
-    // Set the launch date explicitly
-    const launchDate = new Date('2025-02-13T00:00:00'); // Set to the exact time (YYYY-MM-DD format)
-    const countdownDisplay = document.getElementById('countdown');
-
-    function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = launchDate - now;
-
-        if (distance < 0) {
-            countdownDisplay.innerHTML = "Launching Today!";
-            return;
-        }
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        countdownDisplay.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+<script>
+    function showComingSoonModal() {
+        document.getElementById('coming-soon-modal').style.display = 'flex';
     }
 
-    setInterval(updateCountdown, 1000); // Update every second
-}
+    function hideComingSoonModal() {
+        document.getElementById('coming-soon-modal').style.display = 'none';
+    }
 
-document.addEventListener('DOMContentLoaded', countdownTimer);
+    // Countdown Timer
+    function countdownTimer() {
+        const launchDate = new Date('2025-02-14T00:00:00'); // Updated launch date
+        const countdownDisplay = document.getElementById('countdown');
 
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
 
-        // Audio toggle functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const video = document.getElementById('promo-video');
-            const audioToggle = document.getElementById('audio-toggle');
-            const audioIcon = audioToggle.querySelector('i');
+            if (distance < 0) {
+                countdownDisplay.innerHTML = "Launching Today!";
+                return;
+            }
 
-            audioToggle.addEventListener('click', function() {
-                video.muted = !video.muted;
-                audioIcon.className = video.muted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
-            });
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownDisplay.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        updateCountdown(); // Call immediately to avoid initial delay
+        setInterval(updateCountdown, 1000); // Update every second
+    }
+
+    document.addEventListener('DOMContentLoaded', countdownTimer);
+
+    // Audio toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const video = document.getElementById('promo-video');
+        const audioToggle = document.getElementById('audio-toggle');
+        const audioIcon = audioToggle.querySelector('i');
+
+        audioToggle.addEventListener('click', function() {
+            video.muted = !video.muted;
+            audioIcon.className = video.muted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
         });
-    </script>
+    });
+</script>
 </body>
 </html>
 ```
